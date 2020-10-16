@@ -20,7 +20,7 @@ namespace Template.CodeTitle
     public class TitleSetup : IGameMode
     {
 
-        /// hey its ricky
+        /// hey its ricky dicky
         /// <summary>
         /// reference to logic event
         /// </summary>
