@@ -21,6 +21,14 @@ namespace Template.CodeGame
         /// reference to logic event
         /// </summary>
         private Event evLogic;
+        private int enemyHP;
+        private int enemySpeed;
+        private int enemyArmour;
+        private int enemyReward;
+        private int[,] enemyAtts;
+        private int enemyTypes;
+        private int e;
+        /// enemy details (Types, Health, Speed, Armour, Reward)
 
 
         /// <summary>
@@ -40,8 +48,37 @@ namespace Template.CodeGame
 
             new MovingEnemy(new Vector2(540, 20), new Vector2(0, 40));
 
+
             //setup an event to check for logic
             GM.eventM.AddEvent(evLogic = new Event(GM.eventM.MaximumRate, "container logic", Logic));
+        }
+        private void Enemies()
+        {
+            int[,] enemyAtts = new int[,]
+            {
+                {1, 50, 50, 1, 5},
+                {2, 150, 30, 2, 10},
+                {3, 200, 80, 2, 20},
+                {4, 350, 20, 3, 50},
+                {5, 600, 50, 3, 100},
+            };
+
+            enemyTypes = enemyAtts[e, 0];
+            enemyHP = enemyAtts[e, 1];
+            enemySpeed = enemyAtts[e, 2];
+            enemyArmour = enemyAtts[e, 3];
+            enemyReward = enemyAtts[e, 4];
+
+
+            
+        }
+        private void Towers()
+        {
+            int[,] towerAtts = new int[,]
+            {
+                {1, 60, 20, 80, 250, 1},
+                {2, 120, 10, 100, 125, 2},
+            };
         }
 
         /// <summary>
