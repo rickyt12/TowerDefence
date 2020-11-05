@@ -93,6 +93,7 @@ namespace Template.CodeGame
         {
             //dynamic text needs to be repeatidly drawn onto the screen
             GM.textM.Draw(FontBank.mappy, "Balance: Wave: Health:", 0, 600, TextAtt.BottomLeft);
+            //counters for balance, wave, health
 
             //check for quit key
             if (GM.inputM.KeyPressed(Keys.Escape))
