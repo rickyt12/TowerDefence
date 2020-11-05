@@ -92,7 +92,7 @@ namespace Template.CodeGame
         private void Logic()
         {
             //dynamic text needs to be repeatidly drawn onto the screen
-            //GM.textM.Draw(FontBank.mappy, "GAME SCREEN~esc - back to title", GM.screenSize.Center.X, GM.screenSize.Center.Y, TextAtt.Centred);
+            GM.textM.Draw(FontBank.mappy, "Balance: Wave: Health:", 0, 600, TextAtt.BottomLeft);
 
             //check for quit key
             if (GM.inputM.KeyPressed(Keys.Escape))
