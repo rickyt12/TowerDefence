@@ -21,14 +21,24 @@ namespace Template.CodeGame
         /// reference to logic event
         /// </summary>
         private Event evLogic;
+        private int wave;
+        private int balance;
+        private int baseHP;
+        /// running counters
+
+        private int inbound;
+        /// total enemies of one type for the wave
+        
         private int enemyHP;
         private int enemySpeed;
         private int enemyArmour;
         private int enemyReward;
         private int[,] enemyAtts;
-        private int enemyTypes;
+        private int enemyType;
         private int e;
         /// enemy details (Types, Health, Speed, Armour, Reward)
+        
+        
 
 
         /// <summary>
@@ -47,7 +57,7 @@ namespace Template.CodeGame
             TileMap t = new Level("This is where the fun begins");
 
             new MovingEnemy(new Vector2(540, 20), new Vector2(0, 40));
-
+            
 
             //setup an event to check for logic
             GM.eventM.AddEvent(evLogic = new Event(GM.eventM.MaximumRate, "container logic", Logic));
@@ -63,7 +73,7 @@ namespace Template.CodeGame
                 {5, 500, 50, 3, 100},
             };
 
-            enemyTypes = enemyAtts[e, 0];
+            enemyType = enemyAtts[e, 0];
             enemyHP = enemyAtts[e, 1];
             enemySpeed = enemyAtts[e, 2];
             enemyArmour = enemyAtts[e, 3];
@@ -92,13 +102,34 @@ namespace Template.CodeGame
         private void Logic()
         {
             //dynamic text needs to be repeatidly drawn onto the screen
-            GM.textM.Draw(FontBank.mappy, "Balance: Wave: Health:", 0, 600, TextAtt.BottomLeft);
+            GM.textM.Draw(FontBank.vector, "B 100   W 1   H 1000", 0, 600, TextAtt.BottomLeft);
             //counters for balance, wave, health
 
             //check for quit key
             if (GM.inputM.KeyPressed(Keys.Escape))
             {
                 BackToTitle();
+            }
+            
+            
+        }
+
+        private void NextWave()
+        {
+            if (wave < 3)
+            {
+                e = 1;
+                for (int inbound = 0; inbound < (wave * 5); inbound++)
+                {
+                    
+                }
+            }
+            else if (wave >= 3 && wave < 6)
+            {
+                e = 1;
+                inbound = (wave * 3);
+                e = 2;
+                inbound = (wave);
             }
         }
 
@@ -108,6 +139,11 @@ namespace Template.CodeGame
             GM.eventM.Remove(evLogic);
             GM.ClearAllManagedObjects();
             GM.active = new TitleSetup();
+        }
+
+        private void EnemyPath()
+        {
+
         }
     }
 }

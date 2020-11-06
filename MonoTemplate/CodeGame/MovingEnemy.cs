@@ -22,6 +22,11 @@ namespace Template.CodeGame
             Position2D = pos;
             Velocity2D = vel;
 
+            if (pos = 60)
+            {
+
+            }
+
 
             
 
