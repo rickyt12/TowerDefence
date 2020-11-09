@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
+//system threading in use for sleep method
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -26,7 +28,7 @@ namespace Template.CodeGame
         private int baseHP;
         /// running counters
 
-        private int inbound;
+        private int ib;
         /// total enemies of one type for the wave
         
         private int enemyHP;
@@ -37,8 +39,9 @@ namespace Template.CodeGame
         private int enemyType;
         private int e;
         /// enemy details (Types, Health, Speed, Armour, Reward)
-        
-        
+
+        private bool passed;
+        /// true when level 20 is beaten
 
 
         /// <summary>
@@ -72,12 +75,15 @@ namespace Template.CodeGame
                 {4, 350, 20, 3, 50},
                 {5, 500, 50, 3, 100},
             };
+            //array for enemy attributes
 
             enemyType = enemyAtts[e, 0];
             enemyHP = enemyAtts[e, 1];
             enemySpeed = enemyAtts[e, 2];
             enemyArmour = enemyAtts[e, 3];
             enemyReward = enemyAtts[e, 4];
+            //assigned new variables (functioning as a column)
+            //e determines tower type in reference
 
 
             
@@ -114,23 +120,92 @@ namespace Template.CodeGame
             
         }
 
-        private void NextWave()
+        private void WaveCheck()
         {
             if (wave < 3)
             {
                 e = 1;
-                for (int inbound = 0; inbound < (wave * 5); inbound++)
+                for (int ib = 0; ib < (wave * 5); ib++)
                 {
-                    
+                    SpawnEnemy();
                 }
             }
             else if (wave >= 3 && wave < 6)
             {
                 e = 1;
-                inbound = (wave * 3);
+                for (int ib = 0; ib < (wave * 6); ib++)
+                {
+                    SpawnEnemy();
+                }
+                Thread.Sleep(2500);
                 e = 2;
-                inbound = (wave);
+                for (int ib = 0; ib < (wave); ib++)
+                {
+                    SpawnEnemy();
+                }
             }
+            else if (wave >= 6 && wave < 10)
+            {
+                e = 2;
+                for (int ib = 0; ib < (wave); ib++)
+                {
+                    SpawnEnemy();
+                }
+                Thread.Sleep(2500);
+                e = 3;
+                for (int ib = 0; ib < (wave * 2); ib++)
+                {
+                    SpawnEnemy();
+                }
+            }
+            else if (wave >= 10 && wave < 15)
+            {
+                e = 2;
+                for (int ib = 0; ib < (wave - 3); ib++)
+                {
+                    SpawnEnemy();
+                }
+                Thread.Sleep(2500);
+                e = 4;
+                for (int ib = 0; ib < (wave - 9); ib++)
+                {
+                    SpawnEnemy();
+                }
+            }
+            else if (wave == 15)
+            {
+                e = 1;
+                for (int ib = 0; ib < 50; ib++)
+                {
+                    SpawnEnemy();
+                }
+            }
+            else if (wave >= 16 && wave < 21)
+            {
+                e = 3;
+                for (int ib = 0; ib < (wave - 10); ib++)
+                {
+                    SpawnEnemy();
+                }
+                Thread.Sleep(2500);
+                e = 4;
+                for (int ib = 0; ib < (wave - 13); ib++)
+                {
+                    SpawnEnemy();
+                }
+            }
+            //preset first 20 waves of enemies
+            //no type 5s
+            else
+            {
+                passed = true;
+                e = 5;
+                for (int ib = 0; ib < (wave - 20); ib++)
+                {
+                    SpawnEnemy();
+                }
+            }
+            //for any wave past 20, gradually increasing amount of type 5 enemies
         }
 
         private void BackToTitle()
@@ -141,8 +216,9 @@ namespace Template.CodeGame
             GM.active = new TitleSetup();
         }
 
-        private void EnemyPath()
+        private void SpawnEnemy()
         {
+
 
         }
     }
