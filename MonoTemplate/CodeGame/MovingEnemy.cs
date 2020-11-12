@@ -21,15 +21,10 @@ namespace Template.CodeGame
             Frame.Define(Tex.Circle32by32);
             Position2D = pos;
             Velocity2D = vel;
-
-            if (pos = 60)
-            {
-
-            }
-
-
             
+               
 
         }
+        
     }
 }

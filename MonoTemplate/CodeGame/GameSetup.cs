@@ -199,6 +199,13 @@ namespace Template.CodeGame
             else
             {
                 passed = true;
+                Random r = new Random();
+                int genRand = r.Next(1, 4);
+                e = genRand;
+                for (int ib = 0; ib < (wave - 10); ib++)
+                {
+                    SpawnEnemy();
+                }
                 e = 5;
                 for (int ib = 0; ib < (wave - 20); ib++)
                 {
@@ -206,6 +213,7 @@ namespace Template.CodeGame
                 }
             }
             //for any wave past 20, gradually increasing amount of type 5 enemies
+            //additionally: gradually increasing amount of a random enemy type
         }
 
         private void BackToTitle()
