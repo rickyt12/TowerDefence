@@ -22,10 +22,10 @@ namespace Template.CodeGame
         const int END = 4; //base enterance
         const int EXT = 5;
 
-        const int UP = 6;
-        const int DOWN = 7;
-        const int LEFT = 8;
-        const int RIGHT = 9;
+        const int GOUP = 6;
+        const int GODOWN = 7;
+        const int GOLEFT = 8;
+        const int GORIGHT = 9;
         //redirect tiles for enemies
 
 
@@ -51,12 +51,15 @@ namespace Template.CodeGame
             { 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5 },
 
         };
+
         public Level(string debugName) : base(debugName)
         {
+            //800x600
             GM.tileMapM.Add(this);
             this.SetMap(40, 40, levelMap);
 
             CreateTiles();
+            
         }
 
         private void CreateTiles()
@@ -69,6 +72,10 @@ namespace Template.CodeGame
                 new Tile(Tex.Rectangle50by50, new Rectangle(0, 0, 40, 40), Color.Blue),
                 new Tile(Tex.Rectangle50by50, new Rectangle(0, 0, 40, 40), Color.Gold),
                 new Tile(Tex.Rectangle50by50, new Rectangle(0, 0, 40, 40), Color.Gray),
+                new Tile(Tex.Rectangle50by50, new Rectangle(0, 0, 40, 40), Color.Orange),
+                new Tile(Tex.Rectangle50by50, new Rectangle(0, 0, 40, 40), Color.Orange),
+                new Tile(Tex.Rectangle50by50, new Rectangle(0, 0, 40, 40), Color.Orange),
+                new Tile(Tex.Rectangle50by50, new Rectangle(0, 0, 40, 40), Color.Orange),
 
             };
         }

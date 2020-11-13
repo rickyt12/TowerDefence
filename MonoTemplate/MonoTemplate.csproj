@@ -58,8 +58,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="CodeGame\GameSetup.cs" />
+    <Compile Include="CodeGame\GenWave.cs" />
     <Compile Include="CodeGame\Level.cs" />
     <Compile Include="CodeGame\MovingEnemy.cs" />
+    <Compile Include="CodeGame\SpawnSystem.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Assets and Messages\Assets.cs" />

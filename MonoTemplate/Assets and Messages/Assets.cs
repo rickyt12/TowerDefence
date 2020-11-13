@@ -34,7 +34,7 @@ namespace Template
         /// <summary>
         /// reference to screen size - smaller is better as this will be quickler
         /// </summary>
-        public static Rectangle screenSize = new Rectangle(0, 0, 800,600);
+        public static Rectangle screenSize = new Rectangle(0, 0, 840,640);
         /*************************************************
         ************   STORAGE FOR TEXTURES    ***********
         *************************************************/

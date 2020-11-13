@@ -55,12 +55,13 @@ namespace Template.CodeGame
         /// </summary>
         public GameSetup()
         {
-            GM.engineM.DebugDisplay = Debug.none;
+            GM.engineM.DebugDisplay = Debug.eventsFull;
             GM.engineM.ScreenColour = Color.Purple;
             TileMap t = new Level("This is where the fun begins");
 
-            new MovingEnemy(new Vector2(540, 20), new Vector2(0, 40));
-            
+            //new MovingEnemy(new Vector2(540, 20), new Vector2(0, 40));
+
+            new SpawnSystem(t, 2);
 
             //setup an event to check for logic
             GM.eventM.AddEvent(evLogic = new Event(GM.eventM.MaximumRate, "container logic", Logic));
@@ -124,7 +125,7 @@ namespace Template.CodeGame
         {
             if (wave < 3)
             {
-                e = 1;
+                e = 0;
                 for (int ib = 0; ib < (wave * 5); ib++)
                 {
                     SpawnEnemy();
@@ -132,13 +133,13 @@ namespace Template.CodeGame
             }
             else if (wave >= 3 && wave < 6)
             {
-                e = 1;
+                e = 0;
                 for (int ib = 0; ib < (wave * 6); ib++)
                 {
                     SpawnEnemy();
                 }
                 Thread.Sleep(2500);
-                e = 2;
+                e = 1;
                 for (int ib = 0; ib < (wave); ib++)
                 {
                     SpawnEnemy();
@@ -200,13 +201,13 @@ namespace Template.CodeGame
             {
                 passed = true;
                 Random r = new Random();
-                int genRand = r.Next(1, 4);
+                int genRand = r.Next(0, 3);
                 e = genRand;
                 for (int ib = 0; ib < (wave - 10); ib++)
                 {
                     SpawnEnemy();
                 }
-                e = 5;
+                e = 4;
                 for (int ib = 0; ib < (wave - 20); ib++)
                 {
                     SpawnEnemy();
