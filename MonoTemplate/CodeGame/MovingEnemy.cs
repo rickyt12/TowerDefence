@@ -18,7 +18,7 @@ namespace Template.CodeGame
         public MovingEnemy(Vector2 pos, Vector2 vel)
         {
             GM.engineM.AddSprite(this);
-            Frame.Define(Tex.Circle32by32);
+            Frame.Define(Tex.Circle16by16);
             Position2D = pos;
             Velocity2D = vel;
             

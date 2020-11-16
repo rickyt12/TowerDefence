@@ -43,13 +43,21 @@ namespace Template.CodeGame
         {
             new List<Wave>() {new Wave(0,0,1.1f,5) } ,//0
             new List<Wave>() {new Wave(0,0,1.1f,5), new Wave(0,8,1.1f,10) } ,//1
-            new List<Wave>() {new Wave(0,0,1.1f,6), new Wave(1,15,1.1f,3) } ,//2
+            new List<Wave>() {new Wave(0,0,1.1f,6), new Wave(1,10,1.1f,3) } ,//2
             new List<Wave>() {new Wave(0,0,1.1f,12), new Wave(1,15,1.1f,6) } ,//3
             new List<Wave>() {new Wave(1,0,1.1f,12) } ,//4
-            new List<Wave>() {new Wave(2,0,1.5f,4) } ,//5
+            new List<Wave>() {new Wave(2,3,1.5f,4) } ,//5
             new List<Wave>() {new Wave(1,0,1.1f,5), new Wave(2,10,1.2f,6) } ,//6
             new List<Wave>() {new Wave(1,0,1.1f,10), new Wave(2,13,1.1f,10) } ,//7
-
+            new List<Wave>() {new Wave(1,0,1.1f,5), new Wave(2,8,1.2f,5), new Wave(1,14,1.1f,5) } ,//8
+            new List<Wave>() {new Wave(2,0,2f,20) } ,//9
+            new List<Wave>() {new Wave(3,3,1.3f,2) } ,//10
+            new List<Wave>() {new Wave(1,0,1.1f,3), new Wave(0,5,1.1f,9), new Wave(3,15,1.3f,1) } ,//11
+            new List<Wave>() {new Wave(2,0,1.1f,5), new Wave(3,7,1.2f,3) } ,//12
+            new List<Wave>() {new Wave(0,0,1.1f,25) } ,//13
+            new List<Wave>() {new Wave(0,0,1f,9), new Wave(1,10,1f,9), new Wave(2,20,1f,9), new Wave(3,30,1f,9) } ,//14
+            new List<Wave>() {new Wave(0,0,1f,10), new Wave(4,15,1f,1) } ,//15
+            new List<Wave>() {new Wave(4,3,5f,3) } ,//16
         };
 
 

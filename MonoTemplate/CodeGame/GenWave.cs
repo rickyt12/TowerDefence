@@ -38,6 +38,7 @@ namespace Template.CodeGame
             {
                 Tally++;
                 new MovingEnemy(new Vector2(540, 20), new Vector2(0, 40));
+
             }
             else
                 GM.eventM.Remove(evSpawner);
