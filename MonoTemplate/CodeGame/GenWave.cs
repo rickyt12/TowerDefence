@@ -16,12 +16,14 @@ namespace Template.CodeGame
 {
     internal class GenWave
     {
+        private Level map;
         private Wave wave;
         private int Tally;
         private Event evSpawner;
 
-        public GenWave(Wave wave)
+        public GenWave(Wave wave, Level t)
         {
+            map = t;
             this.wave = wave;
             this.Tally = 0;
             GM.eventM.DelayCall(wave.start, StartSpawn);
@@ -37,7 +39,7 @@ namespace Template.CodeGame
             if (Tally < wave.total)
             {
                 Tally++;
-                new MovingEnemy(new Vector2(540, 20), new Vector2(0, 40));
+                new MovingEnemy(new Vector2(540, 20), new Vector2(0, 40), map);
 
             }
             else

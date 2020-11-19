@@ -61,13 +61,13 @@ namespace Template.CodeGame
         };
 
 
-        public SpawnSystem(TileMap t, int wave)
+        public SpawnSystem(Level t, int wave)
         {
             this.t = t;
 
             for (int i = 0; i < wavepatterns[wave].Count; i++)
             {
-                new GenWave(wavepatterns[wave][i]);
+                new GenWave(wavepatterns[wave][i], t);
             }
 
 

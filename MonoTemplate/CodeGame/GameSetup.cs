@@ -57,7 +57,7 @@ namespace Template.CodeGame
         {
             GM.engineM.DebugDisplay = Debug.eventsFull;
             GM.engineM.ScreenColour = Color.Purple;
-            TileMap t = new Level("This is where the fun begins");
+            Level t = new Level("This is where the fun begins");
 
             //new MovingEnemy(new Vector2(540, 20), new Vector2(0, 40));
 

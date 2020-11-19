@@ -52,6 +52,30 @@ namespace Template.CodeGame
 
         };
 
+        internal void ChangeDirection(Sprite actor)
+        {
+            Point tile = this.Location(actor);
+            int tileType = GetGraphic(tile);
+
+            switch (tileType)
+            {
+                case GORIGHT:
+                    if (!(actor.Velocity.X > 0))
+                    {
+                        this.SetActorAtCentre(actor);
+                        actor.Velocity = new Vector3(40, 0, 0);
+                    }
+                    break;
+            }
+        }
+
+        internal bool DirectionTile(Sprite actor)
+        {
+            Point tile = this.Location(actor);
+            int tileType = GetGraphic(tile);
+            return tileType >= GOUP || tileType <= GORIGHT;
+        }
+
         public Level(string debugName) : base(debugName)
         {
             //800x600
