@@ -39,7 +39,7 @@ namespace Template.CodeGame
             if (Tally < wave.total)
             {
                 Tally++;
-                new MovingEnemy(new Vector2(540, 20), new Vector2(0, 40), map);
+                new MovingEnemy(new Vector2(540, 20), new Vector2(0, 80), map);
 
             }
             else

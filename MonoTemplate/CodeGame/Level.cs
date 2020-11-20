@@ -51,6 +51,7 @@ namespace Template.CodeGame
             { 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5 },
 
         };
+        private Event tileModder;
 
         internal void ChangeDirection(Sprite actor)
         {
@@ -63,10 +64,32 @@ namespace Template.CodeGame
                     if (!(actor.Velocity.X > 0))
                     {
                         this.SetActorAtCentre(actor);
-                        actor.Velocity = new Vector3(40, 0, 0);
+                        actor.Velocity = new Vector3(80, 0, 0);
+                    }
+                    break;
+                case GODOWN:
+                    if (!(actor.Velocity.Y > 0))
+                    {
+                        this.SetActorAtCentre(actor);
+                        actor.Velocity = new Vector3(0, 80, 0);
+                    }
+                    break;
+                case GOLEFT:
+                    if (!(actor.Velocity.X < 0))
+                    {
+                        this.SetActorAtCentre(actor);
+                        actor.Velocity = new Vector3(-80, 0, 0);
+                    }
+                    break;
+                case GOUP:
+                    if (!(actor.Velocity.Y < 0))
+                    {
+                        this.SetActorAtCentre(actor);
+                        actor.Velocity = new Vector3(0, -80, 0);
                     }
                     break;
             }
+ 
         }
 
         internal bool DirectionTile(Sprite actor)
@@ -83,7 +106,45 @@ namespace Template.CodeGame
             this.SetMap(40, 40, levelMap);
 
             CreateTiles();
+
+            GM.eventM.AddEvent(tileModder = new Event(GM.eventM.MaximumRate, "TileModder", ProcessTiles));
             
+        }
+
+        public override void CleanUp()
+        {
+            GM.eventM.Remove(tileModder);
+
+            base.CleanUp();
+        }
+        Point clickTile;
+        private int chosen;
+
+        private void ProcessTiles()
+        {
+            
+            if (GM.inputM.MouseLeftButtonPressed())
+            {
+                Vector2 mp = GM.inputM.MouseLocation;
+
+                clickTile = this.Location(mp.X, mp.Y);
+
+                this.Highlight(clickTile, Color.Silver, 1, 0.5f);
+                int chosen = GetGraphic(clickTile);
+            }
+            
+            switch (chosen)
+            {
+                case WALL:
+                    if (GM.inputM.KeyPressed(Keys.T))
+                    {
+                        if (clickTile != null)
+                        {
+                            
+                        }
+                    }
+                    break;
+            }
         }
 
         private void CreateTiles()
