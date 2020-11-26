@@ -107,8 +107,20 @@ namespace Template.CodeGame
 
             CreateTiles();
 
+            GM.engineM.WorldSize(this.Area);
+            ProcessGraphicMap(Interro);
+
             GM.eventM.AddEvent(tileModder = new Event(GM.eventM.MaximumRate, "TileModder", ProcessTiles));
             
+        }
+
+        private int Interro(int tilenumber, Point location)
+        {
+            switch (tilenumber)
+            {
+                default:
+                    return tilenumber;
+            }
         }
 
         public override void CleanUp()
