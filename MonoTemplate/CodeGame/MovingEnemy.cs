@@ -10,6 +10,7 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using Engine;
 
+
 namespace Template.CodeGame
 {
     internal class MovingEnemy : Sprite

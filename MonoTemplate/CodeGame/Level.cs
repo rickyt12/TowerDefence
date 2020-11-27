@@ -28,6 +28,8 @@ namespace Template.CodeGame
         const int GORIGHT = 9;
         //redirect tiles for enemies
 
+        const int TOWER = 10;
+
 
 
 
@@ -108,19 +110,9 @@ namespace Template.CodeGame
             CreateTiles();
 
             GM.engineM.WorldSize(this.Area);
-            ProcessGraphicMap(Interro);
 
             GM.eventM.AddEvent(tileModder = new Event(GM.eventM.MaximumRate, "TileModder", ProcessTiles));
             
-        }
-
-        private int Interro(int tilenumber, Point location)
-        {
-            switch (tilenumber)
-            {
-                default:
-                    return tilenumber;
-            }
         }
 
         public override void CleanUp()
@@ -140,20 +132,26 @@ namespace Template.CodeGame
                 Vector2 mp = GM.inputM.MouseLocation;
 
                 clickTile = this.Location(mp.X, mp.Y);
-
-                this.Highlight(clickTile, Color.Silver, 1, 0.5f);
                 int chosen = GetGraphic(clickTile);
+                this.Highlight(clickTile, Color.Silver, 1, 0.5f);
+                
+                
             }
             
             switch (chosen)
             {
                 case WALL:
+                    
                     if (GM.inputM.KeyPressed(Keys.T))
                     {
                         if (clickTile != null)
                         {
-                            
+                            new Tower(this, this.PixelLocationCentre(clickTile));
                         }
+                    }
+                    if (GM.inputM.KeyPressed(Keys.Y))
+                    {
+                        this.SetGraphic(clickTile, WALL);
                     }
                     break;
             }
@@ -169,10 +167,10 @@ namespace Template.CodeGame
                 new Tile(Tex.Rectangle50by50, new Rectangle(0, 0, 40, 40), Color.Blue),
                 new Tile(Tex.Rectangle50by50, new Rectangle(0, 0, 40, 40), Color.Gold),
                 new Tile(Tex.Rectangle50by50, new Rectangle(0, 0, 40, 40), Color.Gray),
-                new Tile(Tex.Rectangle50by50, new Rectangle(0, 0, 40, 40), Color.Orange),
-                new Tile(Tex.Rectangle50by50, new Rectangle(0, 0, 40, 40), Color.Orange),
-                new Tile(Tex.Rectangle50by50, new Rectangle(0, 0, 40, 40), Color.Orange),
-                new Tile(Tex.Rectangle50by50, new Rectangle(0, 0, 40, 40), Color.Orange),
+                new Tile(Tex.Rectangle50by50, new Rectangle(0, 0, 40, 40), Color.Black),
+                new Tile(Tex.Rectangle50by50, new Rectangle(0, 0, 40, 40), Color.Black),
+                new Tile(Tex.Rectangle50by50, new Rectangle(0, 0, 40, 40), Color.Black),
+                new Tile(Tex.Rectangle50by50, new Rectangle(0, 0, 40, 40), Color.Black),
 
             };
         }
