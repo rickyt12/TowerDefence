@@ -21,6 +21,7 @@ namespace Template.CodeGame
         public Tower(Level level, Vector2 build)
         {
             this.level = level;
+            this.vector2 = build;
             GM.engineM.AddSprite(this);
 
             Frame.Define(Tex.Triangle);

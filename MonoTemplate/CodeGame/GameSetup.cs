@@ -43,6 +43,7 @@ namespace Template.CodeGame
         private bool passed;
         /// true when level 20 is beaten
 
+        
 
         /// <summary>
         /// implements interface property using short form
@@ -53,6 +54,8 @@ namespace Template.CodeGame
         /// <summary>
         /// constructor startpoint for mode create initial actions here
         /// </summary>
+
+        
         public GameSetup()
         {
             GM.engineM.DebugDisplay = Debug.eventsFull;
@@ -61,6 +64,7 @@ namespace Template.CodeGame
 
             //new MovingEnemy(new Vector2(540, 20), new Vector2(0, 40));
 
+            
             new SpawnSystem(t, 2);
 
             //setup an event to check for logic

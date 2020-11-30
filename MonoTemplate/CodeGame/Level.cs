@@ -121,12 +121,14 @@ namespace Template.CodeGame
 
             base.CleanUp();
         }
+
         Point clickTile;
         private int chosen;
 
         private void ProcessTiles()
         {
             
+
             if (GM.inputM.MouseLeftButtonPressed())
             {
                 Vector2 mp = GM.inputM.MouseLocation;
@@ -134,43 +136,41 @@ namespace Template.CodeGame
                 clickTile = this.Location(mp.X, mp.Y);
                 int chosen = GetGraphic(clickTile);
                 this.Highlight(clickTile, Color.Silver, 1, 0.5f);
-                
-                
             }
-            
-            switch (chosen)
+
+
+
+            if (GM.inputM.KeyPressed(Keys.F5))
             {
-                case WALL:
+                if (clickTile != null)
+                {
+                    new Tower(this, this.PixelLocationCentre(clickTile));
                     
-                    if (GM.inputM.KeyPressed(Keys.T))
-                    {
-                        if (clickTile != null)
-                        {
-                            new Tower(this, this.PixelLocationCentre(clickTile));
-                        }
-                    }
-                    if (GM.inputM.KeyPressed(Keys.Y))
-                    {
-                        this.SetGraphic(clickTile, WALL);
-                    }
-                    break;
+                }
+
             }
+            if (GM.inputM.KeyPressed(Keys.F6))
+            {
+                this.SetGraphic(clickTile, FLOOR);
+            }
+
+                   
         }
 
         private void CreateTiles()
         {
             this.MyTileList = new List<Tile>
-                {
-                new Tile(Tex.Rectangle50by50, new Rectangle(0, 0, 40, 40), Color.Black),
-                new Tile(Tex.Rectangle50by50, new Rectangle(0, 0, 40, 40), Color.Green),
-                new Tile(Tex.Rectangle50by50, new Rectangle(0, 0, 40, 40), Color.Red),
-                new Tile(Tex.Rectangle50by50, new Rectangle(0, 0, 40, 40), Color.Blue),
-                new Tile(Tex.Rectangle50by50, new Rectangle(0, 0, 40, 40), Color.Gold),
-                new Tile(Tex.Rectangle50by50, new Rectangle(0, 0, 40, 40), Color.Gray),
-                new Tile(Tex.Rectangle50by50, new Rectangle(0, 0, 40, 40), Color.Black),
-                new Tile(Tex.Rectangle50by50, new Rectangle(0, 0, 40, 40), Color.Black),
-                new Tile(Tex.Rectangle50by50, new Rectangle(0, 0, 40, 40), Color.Black),
-                new Tile(Tex.Rectangle50by50, new Rectangle(0, 0, 40, 40), Color.Black),
+            {
+                new Tile(Tex.Rectangle50by50, new Rectangle(0, 0, 40, 40), Color.Black), //0
+                new Tile(Tex.Rectangle50by50, new Rectangle(0, 0, 40, 40), Color.Green), //1
+                new Tile(Tex.Rectangle50by50, new Rectangle(0, 0, 40, 40), Color.Red), //2
+                new Tile(Tex.Rectangle50by50, new Rectangle(0, 0, 40, 40), Color.Blue), //3
+                new Tile(Tex.Rectangle50by50, new Rectangle(0, 0, 40, 40), Color.Gold), //4
+                new Tile(Tex.Rectangle50by50, new Rectangle(0, 0, 40, 40), Color.Gray), //5
+                new Tile(Tex.Rectangle50by50, new Rectangle(0, 0, 40, 40), Color.Black), //6
+                new Tile(Tex.Rectangle50by50, new Rectangle(0, 0, 40, 40), Color.Black), //7
+                new Tile(Tex.Rectangle50by50, new Rectangle(0, 0, 40, 40), Color.Black), //8
+                new Tile(Tex.Rectangle50by50, new Rectangle(0, 0, 40, 40), Color.Black), //9
 
             };
         }
