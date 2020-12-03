@@ -124,6 +124,19 @@ namespace Template.CodeGame
 
         Point clickTile;
         private int chosen;
+        private bool validselection;
+
+        /*
+         * 
+                         if (GM.inputM.KeyPressed(Keys.F5))
+                {
+                    if (clickTile != null)
+                    {
+                        new Tower(this, this.PixelLocationCentre(clickTile));
+
+                    }
+                }
+         */
 
         private void ProcessTiles()
         {
@@ -136,22 +149,27 @@ namespace Template.CodeGame
                 clickTile = this.Location(mp.X, mp.Y);
                 int chosen = GetGraphic(clickTile);
                 this.Highlight(clickTile, Color.Silver, 1, 0.5f);
-            }
 
 
-
-            if (GM.inputM.KeyPressed(Keys.F5))
-            {
-                if (clickTile != null)
+                if (chosen == WALL)
                 {
-                    new Tower(this, this.PixelLocationCentre(clickTile));
-                    
+                    validselection = true;
                 }
+                else
+                {
+                    validselection = false;
+                }
+                
+
 
             }
-            if (GM.inputM.KeyPressed(Keys.F6))
+
+
+
+            if (GM.inputM.KeyPressed(Keys.F6) && validselection)
             {
-                this.SetGraphic(clickTile, FLOOR);
+                validselection = false;
+                new Tower(this, this.PixelLocationCentre(clickTile));
             }
 
                    
