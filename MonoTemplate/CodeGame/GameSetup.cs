@@ -43,7 +43,7 @@ namespace Template.CodeGame
         private bool passed;
         /// true when level 20 is beaten
 
-        
+        public int bal;
 
         /// <summary>
         /// implements interface property using short form
