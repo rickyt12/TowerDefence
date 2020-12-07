@@ -111,6 +111,8 @@ namespace Template.CodeGame
 
             GM.engineM.WorldSize(this.Area);
 
+            LevelInfo();
+
             GM.eventM.AddEvent(tileModder = new Event(GM.eventM.MaximumRate, "TileModder", ProcessTiles));
             
         }
@@ -174,6 +176,17 @@ namespace Template.CodeGame
 
                    
         }
+
+
+        TextAtt taLevelInfo = new TextAtt(2.5f, 1, Color.Crimson, Align.bottom);
+        //Sets text colour externally
+        private void LevelInfo()
+        {
+            GM.textM.DrawAsSprites(FontBank.arcadePixel, "Wave   Bal   HP  ",
+                GM.screenSize.Center.X - 240, GM.screenSize.Bottom,
+                taLevelInfo, 1000, null);
+        }
+        //Draws up text at bottom left corner of screen
 
         private void CreateTiles()
         {

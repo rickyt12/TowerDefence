@@ -113,7 +113,7 @@ namespace Template.CodeGame
         private void Logic()
         {
             //dynamic text needs to be repeatidly drawn onto the screen
-            GM.textM.Draw(FontBank.vector, "B 100   W 1   H 1000", 0, 600, TextAtt.BottomLeft);
+            //GM.textM.Draw(FontBank.vector, "B 100   W 1   H 1000", 0, 600, TextAtt.BottomLeft);
             //counters for balance, wave, health
 
             //check for quit key

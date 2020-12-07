@@ -43,7 +43,7 @@ namespace Template.CodeGame
         {
             new List<Wave>() {new Wave(0,0,1.1f,5) } ,//0
             new List<Wave>() {new Wave(0,0,1.1f,5), new Wave(0,8,1.1f,10) } ,//1
-            new List<Wave>() {new Wave(0,0,1.1f,6), new Wave(1,10,1.1f,3) } ,//2
+            new List<Wave>() {new Wave(0,0,1.1f,6), new Wave(0,10,1.1f,15) } ,//2
             new List<Wave>() {new Wave(0,0,1.1f,12), new Wave(1,15,1.1f,6) } ,//3
             new List<Wave>() {new Wave(1,0,1.1f,12) } ,//4
             new List<Wave>() {new Wave(2,3,1.5f,4) } ,//5
