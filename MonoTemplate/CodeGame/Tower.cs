@@ -18,6 +18,9 @@ namespace Template.CodeGame
         private Level level;
         private Vector2 vector2;
 
+        public bool canAttack;
+
+
         public Tower(Level level, Vector2 build)
         {
             this.level = level;
@@ -25,11 +28,24 @@ namespace Template.CodeGame
             GM.engineM.AddSprite(this);
 
             Frame.Define(Tex.Triangle);
-            Wash = Color.LightCyan;
+            Wash = Color.Aqua;
 
             Align = Align.centre;
             Position2D = build;
 
+
+
         }
-    }
+
+        public void Range()
+        {
+            
+        }
+        public virtual void Shoot()
+        {
+
+        }
+    }//end of tower
+
+
 }

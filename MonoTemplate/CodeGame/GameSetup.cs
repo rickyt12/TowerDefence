@@ -31,12 +31,12 @@ namespace Template.CodeGame
         private int ib;
         /// total enemies of one type for the wave
         
-        private int enemyHP;
-        private int enemySpeed;
-        private int enemyArmour;
-        private int enemyReward;
+        private int eHP;
+        private int eSpeed;
+        private int eArmour;
+        private int eReward;
         private int[,] enemyAtts;
-        private int enemyType;
+        private int eType;
         private int e;
         /// enemy details (Types, Health, Speed, Armour, Reward)
 
@@ -44,6 +44,16 @@ namespace Template.CodeGame
         /// true when level 20 is beaten
 
         public int bal;
+        /// running player balance total
+
+        private int tType;
+        private int t;
+        private int tCost;
+        private int tHP;
+        private int tRange;
+        private int tRPM;
+        private int tArmour;
+
 
         /// <summary>
         /// implements interface property using short form
@@ -82,11 +92,11 @@ namespace Template.CodeGame
             };
             //array for enemy attributes
 
-            enemyType = enemyAtts[e, 0];
-            enemyHP = enemyAtts[e, 1];
-            enemySpeed = enemyAtts[e, 2];
-            enemyArmour = enemyAtts[e, 3];
-            enemyReward = enemyAtts[e, 4];
+            eType = enemyAtts[e, 0];
+            eHP = enemyAtts[e, 1];
+            eSpeed = enemyAtts[e, 2];
+            eArmour = enemyAtts[e, 3];
+            eReward = enemyAtts[e, 4];
             //assigned new variables (functioning as a column)
             //e determines tower type in reference
 
@@ -103,7 +113,12 @@ namespace Template.CodeGame
                 {4, 360, 100, 400, 400, 3},
                 {5, 600, 55, 300, 50, 3},
             };
-
+            tType = towerAtts[t, 0];
+            tCost = towerAtts[t, 1];
+            tHP = towerAtts[t, 2];
+            tRange = towerAtts[t, 3];
+            tRPM = towerAtts[t, 4];
+            tArmour = towerAtts[t, 5];
         }
 
         /// <summary>
